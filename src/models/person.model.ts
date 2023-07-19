@@ -18,3 +18,5 @@ const personSchema = new Schema<Person>(
     },
     { timestamps: { createdAt: true, updatedAt: false } }
 );
+
+export const Person = model<Person>("Person", personSchema);
