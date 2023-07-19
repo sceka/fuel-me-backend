@@ -20,6 +20,7 @@ router.post("/add-person", async (req, res) => {
     try {
         const newPerson = new Person({ ...req.body });
         await newPerson.save();
+        res.json(newPerson);
     } catch (err) {
         res.json(err);
     }
@@ -43,7 +44,7 @@ router.put("/edit-person/:id", async (req, res) => {
     }
 });
 
-router.delete("delete-person/:id", async (req, res) => {
+router.delete("/delete-person/:id", async (req, res) => {
     try {
         const personId = req.params.id;
         const person = await Person.findById(personId);
